@@ -1,3 +1,6 @@
 {
-    "dashboard": "Dashboard"
+  "navigationLinks": {
+    "currentWeather": "Current Weather",
+    "forecast": "Forecast"
+  }
 }
