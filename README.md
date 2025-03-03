@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
+# React Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, user-friendly weather application built with React. Get real-time weather information for any city around the world.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19.0.0
+- TypeScript
+- Vite 6.2.0 (for build tooling)
+- Redux Toolkit 2.6.0 (for state management)
+- React Router 7.2.0 (for routing)
+- Material-UI 6.4.6 (for UI components)
+- Axios 1.8.1 (for API requests)
+- Day.js 1.11.13 (for date manipulation)
+- i18next 24.2.2 and react-i18next 15.4.1 (for internationalization)
+- ESLint 9.21.0 (for code linting)
+- Prettier 3.5.2 (for code formatting)
 
-## Expanding the ESLint configuration
+### Key Dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- @mui/x-data-grid 7.27.2 (for data grid component)
+- @emotion/react 11.14.0 and @emotion/styled 11.14.0 (for component styling)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Development Tools
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- TypeScript 5.7.2
+- @vitejs/plugin-react 4.3.4
+- @types/react 19.0.10
+- @types/react-dom 19.0.4
+- @types/react-redux 7.1.34
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Create a `.env` file and add your OpenWeatherMap API key and OpenWeatherMap base URL:
