@@ -19,16 +19,16 @@ export const NavigationLinks = () => {
 
   const navLinks = [
     {
-      icon: <ThermostatOutlinedIcon />,
-      activeIcon: <ThermostatIcon />,
-      name: t("navigationLinks.currentWeather"),
-      path: "",
-    },
-    {
       icon: <TimelineOutlinedIcon />,
       activeIcon: <TimelineIcon />,
       name: t("navigationLinks.forecast"),
       path: "forecast",
+    },
+    {
+      icon: <ThermostatOutlinedIcon />,
+      activeIcon: <ThermostatIcon />,
+      name: t("navigationLinks.currentWeather"),
+      path: "",
     },
   ];
 

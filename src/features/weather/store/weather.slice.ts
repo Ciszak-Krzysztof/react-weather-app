@@ -1,4 +1,8 @@
-import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  createSelector,
+} from "@reduxjs/toolkit";
 import { weatherService } from "../service/weather.service";
 import { WeatherData, ForecastData } from "../models/weather.model";
 import { RootState } from "../../../store/store";
@@ -6,15 +10,24 @@ import { RootState } from "../../../store/store";
 interface WeatherState {
   currentWeather: WeatherData | null;
   forecast: ForecastData | null;
-  loading: boolean;
-  error: string | null;
+  loading: {
+    currentWeather: boolean;
+    forecast: boolean;
+  };
+  error: {
+    currentWeather: string | null;
+    forecast: string | null;
+  };
 }
 
 const initialState: WeatherState = {
   currentWeather: null,
   forecast: null,
-  loading: false,
-  error: null,
+  loading: {
+    currentWeather: false,
+    forecast: false,
+  },
+  error: { currentWeather: null, forecast: null },
 };
 
 export const fetchCurrentWeatherData = createAsyncThunk(
@@ -46,35 +59,35 @@ const weatherSlice = createSlice({
     clearWeatherData: (state) => {
       state.currentWeather = null;
       state.forecast = null;
-      state.loading = false;
-      state.error = null;
+      state.loading = { currentWeather: false, forecast: false };
+      state.error = { currentWeather: null, forecast: null };
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentWeatherData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loading.currentWeather = true;
+        state.error.currentWeather = null;
       })
       .addCase(fetchCurrentWeatherData.fulfilled, (state, action) => {
-        state.loading = false;
+        state.loading.currentWeather = false;
         state.currentWeather = action.payload;
       })
       .addCase(fetchCurrentWeatherData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload as string;
+        state.loading.currentWeather = false;
+        state.error.currentWeather = action.payload as string;
       })
       .addCase(fetchForecastData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loading.forecast = true;
+        state.error.forecast = null;
       })
       .addCase(fetchForecastData.fulfilled, (state, action) => {
-        state.loading = false;
+        state.loading.forecast = false;
         state.forecast = action.payload;
       })
       .addCase(fetchForecastData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload as string;
+        state.loading.forecast = false;
+        state.error.forecast = action.payload as string;
       });
   },
 });

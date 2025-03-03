@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const httpService = axios.create({
-  baseURL: import.meta.env.OPEN_WEATHER_API_URL,
+  baseURL: import.meta.env.VITE_OPEN_WEATHER_API_URL,
   timeout: 60000,
   headers: {
     "Content-Type": "application/json",
