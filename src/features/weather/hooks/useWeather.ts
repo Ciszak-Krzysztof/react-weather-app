@@ -29,7 +29,7 @@ const useWeather = () => {
         dispatch(fetchForecastData(location));
       })
       .catch((error) => console.error("Error getting user location:", error));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!currentWeatherData && !isLoading.currentWeather) {
